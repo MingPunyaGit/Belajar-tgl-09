@@ -30,5 +30,26 @@ print('  4. Bagi \t [/]')
 print('=' * 25)
 
 operasi = input('Pilih operasi (1/2/3/4): ')
-bilangan_1 = eval(input('Masukkan bilangan pertama: '))
-bilangan_2 = eval(input('Masukkan bilangan kedua: '))
+
+if operasi in ('1', '2', '3', '4'):
+    bilangan_1 = float(input('Masukkan bilangan pertama: '))
+    bilangan_2 = float(input('Masukkan bilangan kedua: '))
+
+    if operasi == '1':
+        hasil = bilangan_1 + bilangan_2
+        print('Hasil: ', hasil)
+    elif operasi == '2':
+        hasil = bilangan_1 - bilangan_2
+        print('Hasil: ', hasil)
+    elif operasi == '3':
+        hasil = bilangan_1 * bilangan_2
+        print('Hasil: ', hasil)
+    elif operasi == '4':
+        if bilangan_2 != 0:
+            hasil = bilangan_1 / bilangan_2
+            print('Hasil: ', hasil)
+        else:
+            print('Tidak bisa membagi dengan 0')
+else:
+    print('Pilihan operasi tidak valid')
+  
