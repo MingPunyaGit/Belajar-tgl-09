@@ -39,3 +39,39 @@ def bagikan_kartu(jumlah_pemain):
 
 jumlah_pemain = int(input('Masukkan jumlah pemain: '))
 bagikan_kartu(jumlah_pemain)
+
+def bagikan_kartu(jumlah_pemain):
+    dek_kartu = list(range(1, 53))
+    pemain_kartu = [[] for _ in range(jumlah_pemain)]
+
+    pemain_index = 0  # Variabel penghitung pemain
+
+    for kartu in dek_kartu:
+        pemain_kartu[pemain_index].append(kartu)
+        pemain_index = (pemain_index + 1) % jumlah_pemain
+
+    for i, kartu_pemain in enumerate(pemain_kartu):
+        print(f'Pemain {i + 1}: {kartu_pemain}')
+
+jumlah_pemain = int(input('Masukkan jumlah pemain: '))
+bagikan_kartu(jumlah_pemain)
+
+def bagikan_kartu(jumlah_pemain):
+    dek_kartu = list(range(1, 53))
+    pemain_kartu = [[] for _ in range(jumlah_pemain)]
+
+    pemain_index = 0
+    kartu_index = 0
+
+    while kartu_index < len(dek_kartu):
+        kartu = dek_kartu[kartu_index]
+        pemain_kartu[pemain_index].append(kartu)
+        pemain_index = (pemain_index + 1) % jumlah_pemain
+        kartu_index += 1
+
+    for i, kartu_pemain in enumerate(pemain_kartu):
+        print(f'Pemain {i + 1}: {kartu_pemain}')
+
+jumlah_pemain = int(input('Masukkan jumlah pemain: '))
+bagikan_kartu(jumlah_pemain)
+
