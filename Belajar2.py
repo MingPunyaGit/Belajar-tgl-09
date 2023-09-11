@@ -25,3 +25,17 @@ for index in range(len(data_buah)):
 print("Setelah semua buah di bawah batas harga di hapus")
 for buah in data_buah:
     print(f'{buah["nama"]} - {buah["harga"]}')
+
+def bagikan_kartu(jumlah_pemain):
+    dek_kartu = list(range(1, 53))
+    pemain_kartu = [[] for _ in range(jumlah_pemain)]
+
+    for i, kartu in enumerate(dek_kartu):
+        pemain_index = i % jumlah_pemain
+        pemain_kartu[pemain_index].append(kartu)
+
+    for i, kartu_pemain in enumerate(pemain_kartu):
+        print(f'Pemain {i + 1}: {kartu_pemain}')
+
+jumlah_pemain = int(input('Masukkan jumlah pemain: '))
+bagikan_kartu(jumlah_pemain)
