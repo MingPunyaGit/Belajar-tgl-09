@@ -1,4 +1,4 @@
-import math
+ygimport math
 def hitung_jarak(p1,p2):
     return math.sqrt((p2[0] - p1[0]) **2 + (p2[1] - p1[1])**2)
 
@@ -36,3 +36,46 @@ keliling_segitiga2 = hitung_keliling_segitiga(input_test2)
 
 print("Keliling segitiga" ,keliling_segitiga)
 print("Keliling segitiga" ,keliling_segitiga2)
+
+import json
+
+# Membaca data dari file JSON (jika sudah ada)
+try:
+    with open('data.json', 'r') as file:
+        data = json.load(file)
+except FileNotFoundError:
+    # Jika file tidak ditemukan, inisialisasi data sebagai list kosong
+    data = []
+
+# Memasukkan jumlah mahasiswa baru
+jumlah_mahasiswa = int(input('Masukkan jumlah mahasiswa baru: '))
+
+for _ in range(jumlah_mahasiswa):
+    nim = input('Masukkan NIM mahasiswa: ')
+    nama = input('Masukkan nama mahasiswa: ')
+    jurusan = input('Masukkan jurusan mahasiswa: ')
+    
+    jumlah_matkul = int(input('Masukkan jumlah mata kuliah: '))
+    matkul_list = []
+
+    for i in range(jumlah_matkul):
+        matkul = input(f'Masukkan nama mata kuliah ke-{i + 1}: ')
+        matkul_list.append(matkul)
+    
+    new_data = {
+        'NIM': nim,
+        'nama': nama,
+        'jurusan': jurusan,
+        'mata_kuliah': matkul_list
+    }
+    
+    data.append(new_data)
+    
+    print("=== Data berhasil ditambahkan ===")
+
+# Menyimpan data ke dalam file JSON
+with open('data.json', 'w') as file:
+    json.dump(data, file, indent=4)
+
+print('Data berhasil ditambahkan.')
+
