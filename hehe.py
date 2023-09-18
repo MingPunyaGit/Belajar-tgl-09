@@ -104,6 +104,24 @@ with open('data.json', 'w') as file:
 
 print('Data berhasil ditambahkan.')
 
+Masukkan jumlah mahasiswa baru: 2
+Masukkan NIM mahasiswa: 71210761
+Masukkan nama mahasiswa: Christopher Ade Wiyanto
+Masukkan jurusan mahasiswa: Informatika 
+Masukkan jumlah mata kuliah: 2
+Masukkan nama mata kuliah ke-1: Struktur Data
+Masukkan nama mata kuliah ke-2: Pemrograman Android
+=== Data berhasil ditambahkan ===
+
+Data berhasil ditambahkan
+Masukkan NIM mahasiswa: 71210977
+Masukkan nama mahasiswa: Aku Kamu Kita
+Masukkan jurusan mahasiswa: Kedokteran
+Masukkan jumlah mata kuliah: 3
+Masukkan nama mata kuliah ke-1: Pertolongan Pertama
+Masukkan nama mata kuliah ke-2: Bahasa Indonesia
+Masukkan nama mata kuliah ke-3: Praktikum
+=== Data berhasil ditambahkan ===
 
 
 
