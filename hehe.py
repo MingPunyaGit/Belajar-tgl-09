@@ -69,6 +69,40 @@ KETERANGAN: Deret ajaib ke-n maksudnya adalah suku ke-n dari deret bilangan yang
 
 Misal: suku ke-4 dihitung dari suku ke-(n/2) yaitu 3 dikali dengan suku ke-(n/2) yaitu 2, maka suku ke-4 adalah 32 = 6. Kemudian suku ke-5 dihitung dari n-2 yaitu 5 dikali dengan 5/2 yaitu 3. Maka suku ke-7 adalah 53 = 15
 
+import json
+
+# Membaca data dari file JSON (jika sudah ada)
+try:
+    with open('data.json', 'r') as file:
+        data = json.load(file)
+except FileNotFoundError:
+    # Jika file tidak ditemukan, inisialisasi data sebagai list kosong
+    data = []
+
+# Memasukkan jumlah mahasiswa baru
+jumlah_mahasiswa = int(input('Masukkan jumlah mahasiswa baru: '))
+
+for _ in range(jumlah_mahasiswa):
+    new_data = {
+        'NIM': input('Masukkan NIM mahasiswa: '),
+        'nama': input('Masukkan nama mahasiswa: '),
+        'jurusan': input('Masukkan jurusan mahasiswa: ')
+    }
+    
+    jumlah_matkul = int(input('Masukkan jumlah mata kuliah: '))
+    matkul_list = []
+
+    for i in range(jumlah_matkul):
+        matkul_list.append(input(f'Masukkan nama mata kuliah ke-{i + 1}: '))
+    
+    new_data['mata_kuliah'] = matkul_list
+    data.append(new_data)
+
+# Menyimpan data ke dalam file JSON
+with open('data.json', 'w') as file:
+    json.dump(data, file, indent=4)
+
+print('Data berhasil ditambahkan.')
 
 
 
