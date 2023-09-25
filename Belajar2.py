@@ -91,4 +91,82 @@ def bagikan_kartu(jumlah_pemain):
 jumlah_pemain = int(input('Masukkan jumlah pemain: '))
 bagikan_kartu(jumlah_pemain)
 
+class Mahasiswa:
+    def __init__(self, nama, nim, prodi):
+        self.nama = nama
+        self.nim = nim
+        self.prodi = prodi
+        self.ips = 0
+
+    def get_nama(self):
+        return self.nama
+
+    def get_nim(self):
+        return self.nim
+
+    def get_prodi(self):
+        return self.prodi
+
+    def get_ips(self):
+        return self.ips
+
+    def print_informasi(self):
+        print("=== INFORMASI MAHASISWA ====")
+        print("Nama:", self.nama)
+        print("NIM:", self.nim)
+        print("Prodi:", self.prodi)
+        print("IPS:", self.ips)
+
+    def hitung_ips(self):
+        jumlah_nilai = 0
+        jumlah_sks = 0
+
+        # Membaca input pengguna
+        jumlah_mata_kuliah = int(input("Masukkan jumlah mata kuliah: "))
+
+        for i in range(jumlah_mata_kuliah):
+            nama_mata_kuliah = input("Masukkan nama mata kuliah: ")
+            nilai_mata_kuliah = input("Masukkan nilai mata kuliah: ")
+            sks_mata_kuliah = int(input("Masukkan SKS mata kuliah: "))
+
+            # Konversi nilai huruf menjadi nilai angka
+            nilai_angka = {
+                "A": 4,
+                "A-": 3.7,
+                "B+": 3.3,
+                "B": 3,
+                "B-": 2.7,
+                "C+": 2.3,
+                "C": 2,
+                "D": 1,
+                "E": 0
+            }
+
+            # Menghitung total nilai
+            jumlah_nilai += nilai_angka[nilai_mata_kuliah] * sks_mata_kuliah
+
+            # Menghitung total SKS
+            jumlah_sks += sks_mata_kuliah
+
+        # Menghitung IPS
+        self.ips = jumlah_nilai / jumlah_sks
+
+# Deklarasi variable
+nama = "Budi"
+nim = 71210000
+prodi = "FTI"
+
+# Membuat object Mahasiswa
+mahasiswa = Mahasiswa(nama, nim, prodi)
+
+# Menghitung IPS
+mahasiswa.hitung_ips()
+
+# Menampilkan informasi mahasiswa
+mahasiswa.print_informasi()
+
+# Menampilkan output
+print(mahasiswa.nama, mahasiswa.nim, mahasiswa.prodi, mahasiswa.ips)
+            
+
 
